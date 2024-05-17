@@ -1,45 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import parchment_logo from '../assets/parchment.png';
 import stock_image from '../assets/stock.png';
 import arrow from '../assets/arrow.png';
-
-const words = ['Multi-taskers.', 'Students.', 'Professionals.', 'Adventurers.', 'Everyone.'];
+import arrowW from '../assets/arrow-w.png';
 
 const Team = () => {
-    const [currentWordIndex, setCurrentWordIndex] = useState(0);
-    const [displayText, setDisplayText] = useState(words[currentWordIndex]);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [caretVisible, setCaretVisible] = useState(true);
-
-    useEffect(() => {
-        const caretBlinkInterval = setInterval(() => {
-            setCaretVisible(vis => !vis);
-        }, 250);
-
-        let textChangeTimeout;
-        if (isDeleting) {
-            textChangeTimeout = setTimeout(() => {
-                setDisplayText(prev => prev.slice(0, -1));
-                if (displayText.length === 1) {
-                    setIsDeleting(false);
-                    setCurrentWordIndex(prevIndex => (prevIndex + 1) % words.length);
-                }
-            }, 100);
-        } else {
-            textChangeTimeout = setTimeout(() => {
-                setDisplayText(words[currentWordIndex].slice(0, displayText.length + 1));
-                if (displayText.length === words[currentWordIndex].length) {
-                    setIsDeleting(true);
-                }
-            }, 200);
-        }
-
-        return () => {
-            clearInterval(caretBlinkInterval);
-            clearTimeout(textChangeTimeout);
-        };
-    }, [displayText, isDeleting, currentWordIndex]);
+    const navigate = useNavigate();
 
     return (
         <div className="flex flex-col h-screen bg-neutral">
@@ -51,7 +18,18 @@ const Team = () => {
                     </h1>
                 </Link>
             </nav>
-            <div className="flex flex-row flex-1 items-center justify-center">
+            <div className='flex container mx-auto px-4 py-8'>
+                <div className="flex justify-start mb-4">
+                    <button 
+                        onClick={() => navigate(-1)} 
+                        className="flex items-center bg-white text-base-300 font-bold py-2 px-4 rounded hover:opacity-75 transition-opacity duration-200"
+                    >
+                        <img src={arrowW} alt="Arrow" className="w-4 h-4 mr-2 transform rotate-180 fill-current" />
+                        Go Back
+                    </button>
+                </div>
+            </div>
+            <div className="flex flex-row items-center justify-center">
                 <div className="card card-compact w-80 bg-neutral shadow-xl">
                     <figure><img src={stock_image} alt="PFP" /></figure>
                     <div className="card-body">
@@ -104,12 +82,6 @@ const Team = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="text-center pb-2 md:pb-4">
-                <p className="construction-text md:text-[15px]">
-                    Made by Beavers, for {displayText}
-                    <span className={`inline-block ${caretVisible ? '' : 'opacity-0'}`}>|</span>
-                </p> 
             </div>
         </div>
     );
