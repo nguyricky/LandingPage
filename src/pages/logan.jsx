@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import parchment_logo from '../assets/parchment.png';
-import arrow from '../assets/arrow.png';
+import arrow from '../assets/arrow-w.png';
 
 const Ricky = () => {
     const navigate = useNavigate();
@@ -17,6 +17,15 @@ const Ricky = () => {
                 </Link>
             </nav>
             <main className="flex-1 container mx-auto px-4 py-8">
+                <div className="flex justify-start mb-4">
+                    <button 
+                        onClick={() => navigate(-1)} 
+                        className="flex items-center bg-white text-base-300 font-bold py-2 px-4 rounded hover:opacity-75 transition-opacity duration-200"
+                    >
+                        <img src={arrow} alt="Arrow" className="w-4 h-4 mr-2 transform rotate-180 fill-current" />
+                        Go Back
+                    </button>
+                </div>
                 <article className="bg-white shadow-xl p-6 rounded-lg">
                     <header className="mb-6">
                         <h2 className="text-3xl font-bold mb-2">Parchment Blog</h2>
@@ -33,15 +42,6 @@ const Ricky = () => {
                             Over the period of taking this course, I have reinforced my javascript skills, learned the basics of C#, and also got some great practice working with a team of programmers on assignments for an extended period of time. </p>
                     </section>
                 </article>
-                <div className="flex justify-center mt-8">
-                    <button 
-                        onClick={() => navigate(-1)} 
-                        className="flex items-center bg-primary text-white font-bold py-2 px-4 rounded hover:opacity-75 transition-opacity duration-200"
-                    >
-                        <img src={arrow} alt="Arrow" className="w-4 h-4 mr-2 transform rotate-180" />
-                        Go Back
-                    </button>
-                </div>
             </main>
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import parchment_logo from '../assets/parchment.png';
-import arrow from '../assets/arrow.png';
+import arrow from '../assets/arrow-w.png';
 
 const Ricky = () => {
     const navigate = useNavigate();
@@ -17,6 +17,15 @@ const Ricky = () => {
                 </Link>
             </nav>
             <main className="flex-1 container mx-auto px-4 py-8">
+                <div className="flex justify-start mb-4">
+                    <button 
+                        onClick={() => navigate(-1)} 
+                        className="flex items-center bg-white text-base-300 font-bold py-2 px-4 rounded hover:opacity-75 transition-opacity duration-200"
+                    >
+                        <img src={arrow} alt="Arrow" className="w-4 h-4 mr-2 transform rotate-180 fill-current" />
+                        Go Back
+                    </button>
+                </div>
                 <article className="bg-white shadow-xl p-6 rounded-lg">
                     <header className="mb-6">
                         <h2 className="text-3xl font-bold mb-2">Parchment Blog</h2>
@@ -29,15 +38,6 @@ const Ricky = () => {
                             As I progressed, I was invited to join a larger team on a more ambitious endeavor: the development of a Sidebar, akin to Google Drive's, to streamline file access, movement, and opening within the desktop environment. This phase introduced significant challenges, including adapting to a new framework and resolving occasional build failures, yet these hurdles served as crucial learning opportunities. Through persistent teamwork and weekly strategy sessions, we overcame these difficulties, each solution bringing us closer to our goal. This experience not only honed my JavaScript skills but also required me to learn Quill, a framework similar in idea to React, preparing me for future professional challenges.                        </p>
                     </section>
                 </article>
-                <div className="flex justify-center mt-8">
-                    <button 
-                        onClick={() => navigate(-1)} 
-                        className="flex items-center bg-primary text-white font-bold py-2 px-4 rounded hover:opacity-75 transition-opacity duration-200"
-                    >
-                        <img src={arrow} alt="Arrow" className="w-4 h-4 mr-2 transform rotate-180" />
-                        Go Back
-                    </button>
-                </div>
             </main>
         </div>
     );
