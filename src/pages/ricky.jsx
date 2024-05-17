@@ -19,7 +19,7 @@ const Ricky = () => {
             <main className="flex-1 container mx-auto px-4 py-8">
                 <article className="bg-white shadow-xl p-6 rounded-lg">
                     <header className="mb-6">
-                        <h2 className="text-3xl font-bold mb-2">Blog Post Title</h2>
+                        <h2 className="text-3xl font-bold mb-2">Parchment Blog</h2>
                         <p className="text-sm text-base-400">By Ricky Nguyen - May 16, 2024</p>
                     </header>
                     <section className="text-lg leading-relaxed">
