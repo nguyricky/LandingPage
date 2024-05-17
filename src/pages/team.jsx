@@ -46,7 +46,7 @@ const Team = () => {
             <nav className='container mx-auto flex items-center my-8'>
                 <Link to="/" className="flex items-center hover:opacity-75 transition-opacity duration-200">
                     <img src={parchment_logo} alt="Parchment Logo" className="w-16 h-16" />
-                    <h1 className='construction-text ml-3 text-2xl'>
+                    <h1 className='text-accent font-semibold ml-3 text-2xl'>
                         Parchment
                     </h1>
                 </Link>
@@ -81,7 +81,7 @@ const Team = () => {
                 <div className="card card-compact w-80 bg-neutral shadow-xl mr-12">
                     <figure><img src={stock_image} alt="PFP" /></figure>
                     <div className="card-body">
-                        <h2 className="card-title text-base-300">Nathaniel Anthony Thickett</h2>
+                        <h2 className="card-title text-base-300">Nathaniel Thickett</h2>
                         <p className='text-base-300'>thicketn@oregonstate.edu</p>
                         <div className="card-actions mt-4">
                             <Link to="/nate" className="flex items-center bg-primary opacity-90 hover:opacity-75 text-white font-bold py-2 px-4 rounded">

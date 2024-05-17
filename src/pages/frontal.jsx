@@ -47,7 +47,7 @@ const Frontal = () => {
             <nav className='container mx-auto flex items-center my-8'>
                 <Link to="/" className="flex items-center hover:opacity-75 transition-opacity duration-200">
                     <img src={parchment_logo} alt="Parchment Logo" className="w-16 h-16" />
-                    <h1 className='construction-text ml-3 text-2xl'>
+                    <h1 className='ml-3 text-2xl text-accent font-semibold'>
                         Parchment
                     </h1>
                 </Link>
